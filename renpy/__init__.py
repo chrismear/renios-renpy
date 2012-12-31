@@ -265,14 +265,21 @@ windows = False
 macintosh = False
 linux = False
 android = False
+ios = False
 
-import platform
+# Ren'iOS
+# mac_ver() tries to use expat, which we don't have in our Python.
+# Remove this checking code, and hard-code platform as 'ios'.
 
-if platform.win32_ver()[0]:
-    windows = True
-elif platform.mac_ver()[0]:
-    macintosh = True
-else:
-    linux = True
+# import platform
+
+# if platform.win32_ver()[0]:
+#     windows = True
+# elif platform.mac_ver()[0]:
+#     macintosh = True
+# else:
+#     linux = True
+
+ios = True
     
 # The android init code in renpy.py will set linux=False and android=True.
