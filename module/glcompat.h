@@ -15,12 +15,22 @@
 #define RENPY_GLES_1
 
 #elif __APPLE__
+
 #include "TargetConditionals.h"
+
 #if TARGET_OS_IPHONE    
+
 #define RENPY_GLES_2
+#include <EAGL.h>
+#include <ES2/gl.h>
+
+#endif
+
 #elif defined ANGLE
 
 #define RENPY_GLES_2
+#include <EGL/egl.h>
+#include <GLES2/gl2.h>
 
 #else
 
@@ -57,9 +67,6 @@
 
 
 #if defined RENPY_GLES_2
-
-#include <EGL/egl.h>
-#include <GLES2/gl2.h>
 
 typedef GLuint GLhandleARB;
 typedef GLchar GLcharARB;
