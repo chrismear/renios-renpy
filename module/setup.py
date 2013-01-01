@@ -8,7 +8,7 @@ import os
 os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
 
 import setuplib
-from setuplib import android, include, library, cython, cmodule, pymodule, copyfile, find_unnecessary_gen
+from setuplib import android, ios, include, library, cython, cmodule, pymodule, copyfile, find_unnecessary_gen
 
 # These control the level of optimization versus debugging.
 setuplib.extra_compile_args = [ "-Wno-unused-function" ]
@@ -67,7 +67,7 @@ if has_fribidi and not android:
 # Sound.
 pymodule("pysdlsound.__init__")
 
-if not android:
+if not (android or ios):
 
     sound = [ "avformat", "avcodec", "avutil", "z" ]
     macros = [ ]
