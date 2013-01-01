@@ -14,6 +14,10 @@
 
 #define RENPY_GLES_1
 
+#elif __APPLE__
+#include "TargetConditionals.h"
+#if TARGET_OS_IPHONE    
+#define RENPY_GLES_2
 #elif defined ANGLE
 
 #define RENPY_GLES_2
