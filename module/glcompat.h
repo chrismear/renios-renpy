@@ -21,7 +21,6 @@
 #if TARGET_OS_IPHONE    
 
 #define RENPY_GLES_2
-#include <EAGL.h>
 #include <ES2/gl.h>
 
 #endif
