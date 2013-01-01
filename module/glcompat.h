@@ -13,6 +13,8 @@
 #if defined ANDROID
 
 #define RENPY_GLES_1
+#include <GLES/gl.h>
+#include <GLES/glext.h>
 
 #elif __APPLE__
 
@@ -20,16 +22,14 @@
 
 #if TARGET_OS_IPHONE    
 
-#define RENPY_GLES_2
-#include <ES2/gl.h>
+#define RENPY_GLES_1
+#include <ES1/gl.h>
 
 #endif
 
 #elif defined ANGLE
 
 #define RENPY_GLES_2
-#include <EGL/egl.h>
-#include <GLES2/gl2.h>
 
 #else
 
@@ -39,9 +39,6 @@
 
 
 #if defined RENPY_GLES_1
-
-#include <GLES/gl.h>
-#include <GLES/glext.h>
 
 #define glOrtho glOrthof
 
@@ -64,8 +61,10 @@
 
 #endif
 
-
 #if defined RENPY_GLES_2
+
+#include <EGL/egl.h>
+#include <GLES2/gl2.h>
 
 typedef GLuint GLhandleARB;
 typedef GLchar GLcharARB;
