@@ -22,6 +22,7 @@
 
 #define RENPY_GLES_1
 #include <ES1/gl.h>
+#include <ES1/glext.h>
 
 #endif
 
