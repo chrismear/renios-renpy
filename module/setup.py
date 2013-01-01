@@ -93,6 +93,8 @@ cython("renpy.display.accelerator", libs=sdl + [ 'z', 'm' ])
 # Gl.
 if android:
     glew_libs = [ 'GLESv2', 'z', 'm' ]
+elif ios:
+    glew_libs = [ 'OpenGLES' ]
 elif has_libglew:
     glew_libs = [ 'GLEW' ]
 else:
