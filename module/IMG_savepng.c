@@ -29,6 +29,7 @@
 #include <SDL/SDL_byteorder.h>
 #include <png.h>
 #include <zlib.h>
+#include "sdl_blitmap.h"
 #include "IMG_savepng.h"
 
 #ifndef png_voidp
