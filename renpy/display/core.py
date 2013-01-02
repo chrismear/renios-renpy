@@ -61,10 +61,10 @@ time_base = None
 
 def init_time():
     global time_base
-    time_base = time.time() - pygame.time.get_ticks() / 1000.0
+    time_base = time.time() - pygame.pygametime.get_ticks() / 1000.0
 
 def get_time():
-    return time_base + pygame.time.get_ticks() / 1000.0
+    return time_base + pygame.pygametime.get_ticks() / 1000.0
 
 
 def displayable_by_tag(layer, tag):
@@ -1179,7 +1179,7 @@ class Interface(object):
             self.safe_mode = True
             
         # Setup periodic event.
-        pygame.time.set_timer(PERIODIC, PERIODIC_INTERVAL)
+        pygame.pygametime.set_timer(PERIODIC, PERIODIC_INTERVAL)
 
         # Don't grab the screen.
         pygame.event.set_grab(False)
@@ -1746,9 +1746,9 @@ class Interface(object):
 
             android.sound.pause_all()
 
-            pygame.time.set_timer(PERIODIC, 0)
-            pygame.time.set_timer(REDRAW, 0)
-            pygame.time.set_timer(TIMEEVENT, 0)
+            pygame.pygametime.set_timer(PERIODIC, 0)
+            pygame.pygametime.set_timer(REDRAW, 0)
+            pygame.pygametime.set_timer(TIMEEVENT, 0)
 
             # The game has to be saved.
             renpy.loadsave.save("_reload-1")
@@ -1759,7 +1759,7 @@ class Interface(object):
             # auto-reload.
             renpy.loadsave.unlink_save("_reload-1")
 
-            pygame.time.set_timer(PERIODIC, PERIODIC_INTERVAL)
+            pygame.pygametime.set_timer(PERIODIC, PERIODIC_INTERVAL)
 
             android.sound.unpause_all()
             
@@ -2187,7 +2187,7 @@ class Interface(object):
                     needs_redraw = False
                     first_pass = False
 
-                    pygame.time.set_timer(REDRAW, 0)
+                    pygame.pygametime.set_timer(REDRAW, 0)
                     pygame.event.clear([REDRAW])
                     old_redraw_time = None
 
@@ -2225,18 +2225,18 @@ class Interface(object):
                                 pygame.event.post(self.redraw_event)
                             except:
                                 pass
-                            pygame.time.set_timer(REDRAW, 0)
+                            pygame.pygametime.set_timer(REDRAW, 0)
                         else:
-                            pygame.time.set_timer(REDRAW, max(int(time_left * 1000), 1))
+                            pygame.pygametime.set_timer(REDRAW, max(int(time_left * 1000), 1))
                         
                         old_redraw_time = redraw_time
                 else:
                     redraw_in = 3600
-                    pygame.time.set_timer(REDRAW, 0)
+                    pygame.pygametime.set_timer(REDRAW, 0)
 
                 # Handle the timeout timer.
                 if not self.timeout_time:
-                    pygame.time.set_timer(TIMEEVENT, 0)
+                    pygame.pygametime.set_timer(TIMEEVENT, 0)
                 else:
                     time_left = self.timeout_time - get_time() 
                     time_left = min(time_left, 3600)
@@ -2244,11 +2244,11 @@ class Interface(object):
                     
                     if time_left <= 0:
                         self.timeout_time = None
-                        pygame.time.set_timer(TIMEEVENT, 0)
+                        pygame.pygametime.set_timer(TIMEEVENT, 0)
                         self.post_time_event()
                     elif self.timeout_time != old_timeout_time:
                         # Always set to at least 1ms.
-                        pygame.time.set_timer(TIMEEVENT, int(time_left * 1000 + 1))
+                        pygame.pygametime.set_timer(TIMEEVENT, int(time_left * 1000 + 1))
                         old_timeout_time = self.timeout_time
 
                 # Predict images, if we haven't done so already.
@@ -2439,10 +2439,10 @@ class Interface(object):
             renpy.display.im.cache.end_tick()
                 
             # We no longer disable periodic between interactions.
-            # pygame.time.set_timer(PERIODIC, 0)
+            # pygame.pygametime.set_timer(PERIODIC, 0)
 
-            pygame.time.set_timer(TIMEEVENT, 0)
-            pygame.time.set_timer(REDRAW, 0)
+            pygame.pygametime.set_timer(TIMEEVENT, 0)
+            pygame.pygametime.set_timer(REDRAW, 0)
 
             renpy.game.context().runtime += end_time - start_time
 
