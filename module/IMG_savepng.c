@@ -26,7 +26,8 @@
  */
 #include <stdlib.h>
 #include <SDL/SDL.h>
-#include <SDL/SDL_byteorder.h>
+#include <SDL/SDL_compat.h>
+#include <SDL/SDL_endian.h>
 #include <png.h>
 #include <zlib.h>
 #include "sdl_blitmap.h"
