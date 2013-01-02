@@ -127,17 +127,17 @@ int IMG_SavePNG_RW(SDL_RWops *src, SDL_Surface *surf,int compression){
 		}
 		png_set_PLTE(png_ptr,info_ptr,palette,fmt->palette->ncolors);
 		if (surf->flags&SDL_SRCCOLORKEY) {
-			palette_alpha=(Uint8 *)malloc((fmt->colorkey+1)*sizeof(Uint8));
+			palette_alpha=(Uint8 *)malloc((surf->map->info.colorkey+1)*sizeof(Uint8));
 			if (!palette_alpha) {
 				SDL_SetError("Couldn't create memory for palette transparency");
 				goto savedone;
 			}
 			/* FIXME: memset? */
-			for (i=0;i<(fmt->colorkey+1);i++) {
+			for (i=0;i<(surf->map->info.colorkey+1);i++) {
 				palette_alpha[i]=255;
 			}
-			palette_alpha[fmt->colorkey]=0;
-			png_set_tRNS(png_ptr,info_ptr,palette_alpha,fmt->colorkey+1,NULL);
+			palette_alpha[surf->map->info.colorkey]=0;
+			png_set_tRNS(png_ptr,info_ptr,palette_alpha,surf->map->info.colorkey+1,NULL);
 		}
 	}else{ /* Truecolor */
 		if (fmt->Amask) {
@@ -229,7 +229,7 @@ int IMG_SavePNG_RW(SDL_RWops *src, SDL_Surface *surf,int compression){
 				goto savedone;
 			}
 			if(surf->flags&SDL_SRCALPHA){
-				temp_alpha=fmt->alpha;
+				temp_alpha=surf->map->info.a;
 				used_alpha=1;
 				SDL_SetAlpha(surf,0,255); /* Set for an opaque blit */
 			}else{
