@@ -909,7 +909,7 @@ class SWDraw(object):
             return True
         
         next_frame = self.next_frame
-        now = pygame.time.get_ticks()
+        now = pygame.pygametime.get_ticks()
 
         frametime = 1000.0 / framerate
 
