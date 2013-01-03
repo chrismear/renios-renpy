@@ -80,7 +80,8 @@ if not (android):
 
     cython(
         "pysdlsound.sound",
-        [ "pss.c", "rwobject.c", "ffdecode.c" ],
+        # [ "pss.c", "rwobject.c", "ffdecode.c" ],
+        [ "pss.c", "ffdecode.c" ],
         libs = sdl + sound)
 
 
