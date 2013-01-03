@@ -67,7 +67,7 @@ if has_fribidi and not android:
 # Sound.
 pymodule("pysdlsound.__init__")
 
-if not (android or ios):
+if not (android):
 
     sound = [ "avformat", "avcodec", "avutil", "z" ]
     macros = [ ]
