@@ -188,7 +188,7 @@ cdef class GLDraw:
         pwidth = max(vwidth / 2, pwidth)
         pheight = max(vheight / 2, pheight)
 
-        if renpy.android:
+        if renpy.android or renpy.ios:
             pheight = self.display_info.current_h
             pwidth = self.display_info.current_w
         else:
