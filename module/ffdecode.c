@@ -1288,7 +1288,7 @@ static int stream_component_open(VideoState *is, int stream_index)
         is->video_current_pts_time = av_gettime();
 
         packet_queue_init(&is->videoq);
-        is->video_tid = SDL_CreateThread(video_thread, is);
+        is->video_tid = SDL_CreateThread(video_thread, "renpyvideothread", is);
         break;
     default:
         break;
@@ -1598,7 +1598,7 @@ VideoState *ffpy_stream_open(SDL_RWops *rwops, const char *filename)
     is->quit_mutex = SDL_CreateMutex();
     is->quit_cond = SDL_CreateCond();
     
-    is->parse_tid = SDL_CreateThread(decode_thread, is);
+    is->parse_tid = SDL_CreateThread(decode_thread, "renpydecodethread", is);
 
     is->first_frame = 1;
 
