@@ -2088,8 +2088,7 @@ class Interface(object):
 
                 # Redraw the screen.
                 if (self.force_redraw or
-                    ((first_pass ) and                     
-                    # ((first_pass or not pygame.event.peek(ALL_EVENTS)) and 
+                    ((first_pass or not pygame.event.peek(ALL_EVENTS)) and 
                      renpy.display.draw.should_redraw(needs_redraw, first_pass))):
 
                     self.force_redraw = False
