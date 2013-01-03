@@ -1076,7 +1076,7 @@ void PSS_init(int freq, int stereo, int samples, int status) {
     }
 
     audio_spec.freq = freq;
-    audio_spec.format = AUDIO_S16SYS;
+    audio_spec.format = AUDIO_S32SYS;
     audio_spec.channels = stereo;
     audio_spec.samples = samples;
     audio_spec.callback = callback;
