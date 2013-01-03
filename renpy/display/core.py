@@ -1564,7 +1564,7 @@ class Interface(object):
 
         ev = pygame.event.poll()
 
-        if ev.type == pygame.NOEVENT:
+        if ev.type == pygame.FIRSTEVENT:
             # Seems to prevent the CPU from speeding up.
             renpy.display.draw.event_peek_sleep()
             return None
@@ -2230,7 +2230,7 @@ class Interface(object):
                         else:
                             ev = self.event_wait()
                         
-                    if ev.type == pygame.NOEVENT:
+                    if ev.type == pygame.FIRSTEVENT:
                         continue
 
                     if renpy.config.profile:
