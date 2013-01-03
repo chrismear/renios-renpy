@@ -146,6 +146,8 @@ cdef class GLDraw:
         can. It returns True if it was succesful, or False if OpenGL isn't
         working for some reason.
         """
+
+        print "In GLDraw.set_mode()"
         
         cdef char *egl_error
         
