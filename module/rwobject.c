@@ -45,15 +45,15 @@ typedef struct
 }RWHelper;
 
 
-static int rw_seek(SDL_RWops* context, int offset, int whence);
-static int rw_read(SDL_RWops* context, void* ptr, int size, int maxnum);
-static int rw_write(SDL_RWops* context, const void* ptr, int size, int maxnum);
+static long rw_seek(SDL_RWops* context, long offset, int whence);
+static size_t rw_read(SDL_RWops* context, void* ptr, size_t size, size_t maxnum);
+static size_t rw_write(SDL_RWops* context, const void* ptr, size_t size, size_t maxnum);
 static int rw_close(SDL_RWops* context);
 
 #ifdef WITH_THREAD
-static int rw_seek_th(SDL_RWops* context, int offset, int whence);
-static int rw_read_th(SDL_RWops* context, void* ptr, int size, int maxnum);
-static int rw_write_th(SDL_RWops* context, const void* ptr, int size, int maxnum);
+static long rw_seek_th(SDL_RWops* context, long offset, int whence);
+static size_t rw_read_th(SDL_RWops* context, void* ptr, size_t size, size_t maxnum);
+static size_t rw_write_th(SDL_RWops* context, const void* ptr, size_t size, size_t maxnum);
 static int rw_close_th(SDL_RWops* context);
 #endif
 
@@ -147,7 +147,7 @@ static int RWopsCheckPython(SDL_RWops* rw)
 }
 
 
-static int rw_seek(SDL_RWops* context, int offset, int whence)
+static long rw_seek(SDL_RWops* context, long offset, int whence)
 {
 	RWHelper* helper = (RWHelper*)context->hidden.unknown.data1;
 	PyObject* result;
@@ -158,7 +158,7 @@ static int rw_seek(SDL_RWops* context, int offset, int whence)
 
 	if(!(offset == 0 && whence == SEEK_CUR)) /*being called only for 'tell'*/
 	{
-		result = PyObject_CallFunction(helper->seek, "ii", offset, whence);
+		result = PyObject_CallFunction(helper->seek, "li", offset, whence);
 		if(!result)
 			return -1;
 		Py_DECREF(result);
@@ -175,7 +175,7 @@ static int rw_seek(SDL_RWops* context, int offset, int whence)
 }
 
 
-static int rw_read(SDL_RWops* context, void* ptr, int size, int maxnum)
+static size_t rw_read(SDL_RWops* context, void* ptr, size_t size, size_t maxnum)
 {
 	RWHelper* helper = (RWHelper*)context->hidden.unknown.data1;
 	PyObject* result;
@@ -184,7 +184,7 @@ static int rw_read(SDL_RWops* context, void* ptr, int size, int maxnum)
 	if(!helper->read)
 		return -1;
 
-	result = PyObject_CallFunction(helper->read, "i", size * maxnum);
+	result = PyObject_CallFunction(helper->read, "l", size * maxnum);
 	if(!result)
 		return -1;
 
@@ -203,7 +203,7 @@ static int rw_read(SDL_RWops* context, void* ptr, int size, int maxnum)
 }
 
 
-static int rw_write(SDL_RWops* context, const void* ptr, int size, int num)
+static size_t rw_write(SDL_RWops* context, const void* ptr, size_t size, size_t num)
 {
 	RWHelper* helper = (RWHelper*)context->hidden.unknown.data1;
 	PyObject* result;
@@ -293,7 +293,7 @@ static int RWopsCheckPythonThreaded(SDL_RWops* rw)
 }
 
 #ifdef WITH_THREAD
-static int rw_seek_th(SDL_RWops* context, int offset, int whence)
+static long rw_seek_th(SDL_RWops* context, long offset, int whence)
 {
 	RWHelper* helper = (RWHelper*)context->hidden.unknown.data1;
 	PyObject* result;
@@ -308,7 +308,7 @@ static int rw_seek_th(SDL_RWops* context, int offset, int whence)
 
 	if(!(offset == 0 && whence == SEEK_CUR)) /*being called only for 'tell'*/
 	{
-		result = PyObject_CallFunction(helper->seek, "ii", offset, whence);
+		result = PyObject_CallFunction(helper->seek, "li", offset, whence);
 		if(!result) {
                     PyErr_Clear();
                     PyThreadState_Swap(oldstate);
@@ -338,7 +338,7 @@ static int rw_seek_th(SDL_RWops* context, int offset, int whence)
 }
 
 
-static int rw_read_th(SDL_RWops* context, void* ptr, int size, int maxnum)
+static size_t rw_read_th(SDL_RWops* context, void* ptr, size_t size, size_t maxnum)
 {
 	RWHelper* helper = (RWHelper*)context->hidden.unknown.data1;
 	PyObject* result;
@@ -351,7 +351,7 @@ static int rw_read_th(SDL_RWops* context, void* ptr, int size, int maxnum)
         PyEval_AcquireLock();
         oldstate = PyThreadState_Swap(helper->thread);
 
-	result = PyObject_CallFunction(helper->read, "i", size * maxnum);
+	result = PyObject_CallFunction(helper->read, "l", size * maxnum);
 	if(!result) {
                 PyThreadState_Swap(oldstate);
                 PyEval_ReleaseLock();
@@ -380,7 +380,7 @@ static int rw_read_th(SDL_RWops* context, void* ptr, int size, int maxnum)
 }
 
 
-static int rw_write_th(SDL_RWops* context, const void* ptr, int size, int num)
+static size_t rw_write_th(SDL_RWops* context, const void* ptr, size_t size, size_t num)
 {
 	RWHelper* helper = (RWHelper*)context->hidden.unknown.data1;
 	PyObject* result;
