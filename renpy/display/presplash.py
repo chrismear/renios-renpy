@@ -46,6 +46,8 @@ def start(gamedir):
     else:
         return
 
+    print "Ren'Py: Found presplash image"
+
     try:    
         import subprocess
         import sys
@@ -64,6 +66,7 @@ def start(gamedir):
         proc = subprocess.Popen([ fsencode(i) for i in cmd ], 
             stdin=subprocess.PIPE, stdout=subprocess.PIPE)
     except:
+        print "Ren'Py: Failed to start subprocess"
         pass
             
             
