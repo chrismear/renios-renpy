@@ -1362,7 +1362,7 @@ class Interface(object):
                 physical_size = renpy.game.preferences.physical_size
                 
         # Setup screen.
-        fullscreen = renpy.game.preferences.fullscreen
+        fullscreen = True # renpy.game.preferences.fullscreen
         
         # If we're in fullscreen mode, and changing to another mode, go to
         # windowed mode first.
@@ -2136,7 +2136,8 @@ class Interface(object):
             while rv is None:
 
                 # Check for a change in fullscreen preference.                
-                if self.fullscreen != renpy.game.preferences.fullscreen or self.display_reset:
+                # if self.fullscreen != renpy.game.preferences.fullscreen or self.display_reset:
+                if self.display_reset:
                     self.set_mode()
                     needs_redraw = True
 
