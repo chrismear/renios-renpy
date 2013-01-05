@@ -58,6 +58,7 @@ REDRAW = pygame.USEREVENT + 7
 # All events except for TIMEEVENT and REDRAW
 ALL_EVENTS = [ i for i in range(0, REDRAW + 1) if i != TIMEEVENT and i != REDRAW ]
 
+
 # The number of msec between periodic events.
 PERIODIC_INTERVAL = 50
 
@@ -2088,7 +2089,14 @@ class Interface(object):
 
                 # Redraw the screen.
                 if (self.force_redraw or
-                    ((first_pass or not pygame.event.peek(ALL_EVENTS)) and 
+                    ((first_pass or not (
+                        # pygame.event.peek(ALL_EVENTS)
+                        # 0 to TIMEVENT-1
+                        # TIMEVENT + 1 to REDRAW - 1
+                        pygame.event.peek_range(0, TIMEEVENT - 1) or
+                        pygame.event.peek_range(TIMEEVENT + 1, REDRAW - 1)
+                      )
+                     ) and 
                      renpy.display.draw.should_redraw(needs_redraw, first_pass))):
 
                     self.force_redraw = False
