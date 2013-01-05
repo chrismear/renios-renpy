@@ -239,6 +239,8 @@ def save(filename, extra_info='',
     if renpy.config.save_dump:
         save_dump(roots, renpy.game.log)
 
+    print "Ren'Py Trying to save to {}".format(renpy.config.savedir + "/" + filename)
+
     rf = file(renpy.config.savedir + "/" + filename, "wb")
     zf = zipfile.ZipFile(rf, "w", zipfile.ZIP_DEFLATED)
 
@@ -359,6 +361,8 @@ def load(filename):
     
     Loads the game state from `filename`. This function never returns.
     """
+    
+    print "Ren'Py trying to load from: {}".format(renpy.config.savedir + "/" + filename + savegame_suffix)
     
     zf = zipfile.ZipFile(renpy.config.savedir + "/" + filename + savegame_suffix, "r")
     roots, log = loads(zf.read("log"))
