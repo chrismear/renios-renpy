@@ -593,7 +593,7 @@ def init():
             bufsize = int(os.environ['RENPY_SOUND_BUFSIZE'])
 
         try:
-            pss.init(renpy.config.sound_sample_rate, 2, bufsize, False)
+            pss.init(renpy.config.sound_sample_rate, 2, bufsize, True)
             pcm_ok = True
         except:
             if renpy.config.debug_sound:
