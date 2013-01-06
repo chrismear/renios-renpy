@@ -439,6 +439,97 @@ cdef extern from "glcompat.h":
     void glMultiTexCoord4ivARB(GLenum, GLint *)
     void glMultiTexCoord4sARB(GLenum, GLshort, GLshort, GLshort, GLshort)
     void glMultiTexCoord4svARB(GLenum, GLshort *)
+    void glBlendEquationSeparate(GLenum, GLenum)
+    void glDrawBuffers(GLsizei, GLenum *)
+    void glStencilOpSeparate(GLenum, GLenum, GLenum, GLenum)
+    void glStencilFuncSeparate(GLenum, GLenum, GLint, GLuint)
+    void glStencilMaskSeparate(GLenum, GLuint)
+    void glAttachShader(GLuint, GLuint)
+    void glBindAttribLocation(GLuint, GLuint, GLchar *)
+    void glCompileShader(GLuint)
+    GLuint glCreateProgram()
+    GLuint glCreateShader(GLenum)
+    void glDeleteProgram(GLuint)
+    void glDeleteShader(GLuint)
+    void glDetachShader(GLuint, GLuint)
+    void glDisableVertexAttribArray(GLuint)
+    void glEnableVertexAttribArray(GLuint)
+    void glGetActiveAttrib(GLuint, GLuint, GLsizei, GLsizei *, GLint *, GLenum *, GLchar *)
+    void glGetActiveUniform(GLuint, GLuint, GLsizei, GLsizei *, GLint *, GLenum *, GLchar *)
+    void glGetAttachedShaders(GLuint, GLsizei, GLsizei *, GLubyte *)
+    GLint glGetAttribLocation(GLuint, GLchar *)
+    void glGetProgramiv(GLuint, GLenum, GLint *)
+    void glGetProgramInfoLog(GLuint, GLsizei, GLsizei *, GLchar *)
+    void glGetShaderiv(GLuint, GLenum, GLint *)
+    void glGetShaderInfoLog(GLuint, GLsizei, GLsizei *, GLchar *)
+    void glGetShaderSource(GLuint, GLsizei, GLsizei *, GLchar *)
+    GLint glGetUniformLocation(GLuint, GLchar *)
+    void glGetUniformfv(GLuint, GLint, GLfloat *)
+    void glGetUniformiv(GLuint, GLint, GLint *)
+    void glGetVertexAttribdv(GLuint, GLenum, GLdouble *)
+    void glGetVertexAttribfv(GLuint, GLenum, GLfloat *)
+    void glGetVertexAttribiv(GLuint, GLenum, GLint *)
+    GLboolean glIsProgram(GLuint)
+    GLboolean glIsShader(GLuint)
+    void glLinkProgram(GLuint)
+    void glUseProgram(GLuint)
+    void glUniform1f(GLint, GLfloat)
+    void glUniform2f(GLint, GLfloat, GLfloat)
+    void glUniform3f(GLint, GLfloat, GLfloat, GLfloat)
+    void glUniform4f(GLint, GLfloat, GLfloat, GLfloat, GLfloat)
+    void glUniform1i(GLint, GLint)
+    void glUniform2i(GLint, GLint, GLint)
+    void glUniform3i(GLint, GLint, GLint, GLint)
+    void glUniform4i(GLint, GLint, GLint, GLint, GLint)
+    void glUniform1fv(GLint, GLsizei, GLfloat *)
+    void glUniform2fv(GLint, GLsizei, GLfloat *)
+    void glUniform3fv(GLint, GLsizei, GLfloat *)
+    void glUniform4fv(GLint, GLsizei, GLfloat *)
+    void glUniform1iv(GLint, GLsizei, GLint *)
+    void glUniform2iv(GLint, GLsizei, GLint *)
+    void glUniform3iv(GLint, GLsizei, GLint *)
+    void glUniform4iv(GLint, GLsizei, GLint *)
+    void glUniformMatrix2fv(GLint, GLsizei, GLboolean, GLfloat *)
+    void glUniformMatrix3fv(GLint, GLsizei, GLboolean, GLfloat *)
+    void glUniformMatrix4fv(GLint, GLsizei, GLboolean, GLfloat *)
+    void glValidateProgram(GLuint)
+    void glVertexAttrib1d(GLuint, GLdouble)
+    void glVertexAttrib1dv(GLuint, GLdouble *)
+    void glVertexAttrib1f(GLuint, GLfloat)
+    void glVertexAttrib1fv(GLuint, GLfloat *)
+    void glVertexAttrib1s(GLuint, GLshort)
+    void glVertexAttrib1sv(GLuint, GLshort *)
+    void glVertexAttrib2d(GLuint, GLdouble, GLdouble)
+    void glVertexAttrib2dv(GLuint, GLdouble *)
+    void glVertexAttrib2f(GLuint, GLfloat, GLfloat)
+    void glVertexAttrib2fv(GLuint, GLfloat *)
+    void glVertexAttrib2s(GLuint, GLshort, GLshort)
+    void glVertexAttrib2sv(GLuint, GLshort *)
+    void glVertexAttrib3d(GLuint, GLdouble, GLdouble, GLdouble)
+    void glVertexAttrib3dv(GLuint, GLdouble *)
+    void glVertexAttrib3f(GLuint, GLfloat, GLfloat, GLfloat)
+    void glVertexAttrib3fv(GLuint, GLfloat *)
+    void glVertexAttrib3s(GLuint, GLshort, GLshort, GLshort)
+    void glVertexAttrib3sv(GLuint, GLshort *)
+    void glVertexAttrib4Nbv(GLuint, GLbyte *)
+    void glVertexAttrib4Niv(GLuint, GLint *)
+    void glVertexAttrib4Nsv(GLuint, GLshort *)
+    void glVertexAttrib4Nub(GLuint, GLubyte, GLubyte, GLubyte, GLubyte)
+    void glVertexAttrib4Nubv(GLuint, GLubyte *)
+    void glVertexAttrib4Nuiv(GLuint, GLuint *)
+    void glVertexAttrib4Nusv(GLuint, GLushort *)
+    void glVertexAttrib4bv(GLuint, GLbyte *)
+    void glVertexAttrib4d(GLuint, GLdouble, GLdouble, GLdouble, GLdouble)
+    void glVertexAttrib4dv(GLuint, GLdouble *)
+    void glVertexAttrib4f(GLuint, GLfloat, GLfloat, GLfloat, GLfloat)
+    void glVertexAttrib4fv(GLuint, GLfloat *)
+    void glVertexAttrib4iv(GLuint, GLint *)
+    void glVertexAttrib4s(GLuint, GLshort, GLshort, GLshort, GLshort)
+    void glVertexAttrib4sv(GLuint, GLshort *)
+    void glVertexAttrib4ubv(GLuint, GLubyte *)
+    void glVertexAttrib4uiv(GLuint, GLuint *)
+    void glVertexAttrib4usv(GLuint, GLushort *)
+    void glVertexAttribPointer(GLuint, GLint, GLenum, GLboolean, GLsizei, GLubyte *)
     void glVertexAttrib1dARB(GLuint, GLdouble)
     void glVertexAttrib1dvARB(GLuint, GLdouble *)
     void glVertexAttrib1fARB(GLuint, GLfloat)
@@ -590,8 +681,12 @@ cdef extern from "glcompat.h":
         GL_ACCUM_CLEAR_VALUE
         GL_ACCUM_GREEN_BITS
         GL_ACCUM_RED_BITS
+        GL_ACTIVE_ATTRIBUTES
+        GL_ACTIVE_ATTRIBUTE_MAX_LENGTH
         GL_ACTIVE_TEXTURE
         GL_ACTIVE_TEXTURE_ARB
+        GL_ACTIVE_UNIFORMS
+        GL_ACTIVE_UNIFORM_MAX_LENGTH
         GL_ADD
         GL_ADD_SIGNED
         GL_ADD_SIGNED_ARB
@@ -617,6 +712,7 @@ cdef extern from "glcompat.h":
         GL_AND_REVERSE
         GL_ARRAY_BUFFER_ARB
         GL_ARRAY_BUFFER_BINDING_ARB
+        GL_ATTACHED_SHADERS
         GL_ATTRIB_STACK_DEPTH
         GL_AUTO_NORMAL
         GL_AUX0
@@ -634,14 +730,20 @@ cdef extern from "glcompat.h":
         GL_BITMAP_TOKEN
         GL_BLEND
         GL_BLEND_DST
+        GL_BLEND_EQUATION_ALPHA
+        GL_BLEND_EQUATION_RGB
         GL_BLEND_SRC
         GL_BLUE
         GL_BLUE_BIAS
         GL_BLUE_BITS
         GL_BLUE_SCALE
+        GL_BOOL
         GL_BOOL_ARB
+        GL_BOOL_VEC2
         GL_BOOL_VEC2_ARB
+        GL_BOOL_VEC3
         GL_BOOL_VEC3_ARB
+        GL_BOOL_VEC4
         GL_BOOL_VEC4_ARB
         GL_BUFFER_ACCESS_ARB
         GL_BUFFER_MAPPED_ARB
@@ -712,6 +814,7 @@ cdef extern from "glcompat.h":
         GL_COMBINE_RGB_ARB
         GL_COMPILE
         GL_COMPILE_AND_EXECUTE
+        GL_COMPILE_STATUS
         GL_COMPRESSED_ALPHA
         GL_COMPRESSED_INTENSITY
         GL_COMPRESSED_LUMINANCE
@@ -722,6 +825,7 @@ cdef extern from "glcompat.h":
         GL_CONSTANT
         GL_CONSTANT_ARB
         GL_CONSTANT_ATTENUATION
+        GL_COORD_REPLACE
         GL_COPY
         GL_COPY_INVERTED
         GL_COPY_PIXEL_TOKEN
@@ -733,6 +837,7 @@ cdef extern from "glcompat.h":
         GL_CURRENT_MATRIX_ARB
         GL_CURRENT_MATRIX_STACK_DEPTH_ARB
         GL_CURRENT_NORMAL
+        GL_CURRENT_PROGRAM
         GL_CURRENT_RASTER_COLOR
         GL_CURRENT_RASTER_DISTANCE
         GL_CURRENT_RASTER_INDEX
@@ -740,10 +845,12 @@ cdef extern from "glcompat.h":
         GL_CURRENT_RASTER_POSITION_VALID
         GL_CURRENT_RASTER_TEXTURE_COORDS
         GL_CURRENT_TEXTURE_COORDS
+        GL_CURRENT_VERTEX_ATTRIB
         GL_CURRENT_VERTEX_ATTRIB_ARB
         GL_CW
         GL_DECAL
         GL_DECR
+        GL_DELETE_STATUS
         GL_DEPTH
         GL_DEPTH_ATTACHMENT_EXT
         GL_DEPTH_BIAS
@@ -765,6 +872,22 @@ cdef extern from "glcompat.h":
         GL_DOUBLE
         GL_DOUBLEBUFFER
         GL_DRAW_BUFFER
+        GL_DRAW_BUFFER0
+        GL_DRAW_BUFFER1
+        GL_DRAW_BUFFER10
+        GL_DRAW_BUFFER11
+        GL_DRAW_BUFFER12
+        GL_DRAW_BUFFER13
+        GL_DRAW_BUFFER14
+        GL_DRAW_BUFFER15
+        GL_DRAW_BUFFER2
+        GL_DRAW_BUFFER3
+        GL_DRAW_BUFFER4
+        GL_DRAW_BUFFER5
+        GL_DRAW_BUFFER6
+        GL_DRAW_BUFFER7
+        GL_DRAW_BUFFER8
+        GL_DRAW_BUFFER9
         GL_DRAW_PIXEL_TOKEN
         GL_DST_ALPHA
         GL_DST_COLOR
@@ -797,11 +920,17 @@ cdef extern from "glcompat.h":
         GL_FILL
         GL_FLAT
         GL_FLOAT
+        GL_FLOAT_MAT2
         GL_FLOAT_MAT2_ARB
+        GL_FLOAT_MAT3
         GL_FLOAT_MAT3_ARB
+        GL_FLOAT_MAT4
         GL_FLOAT_MAT4_ARB
+        GL_FLOAT_VEC2
         GL_FLOAT_VEC2_ARB
+        GL_FLOAT_VEC3
         GL_FLOAT_VEC3_ARB
+        GL_FLOAT_VEC4
         GL_FLOAT_VEC4_ARB
         GL_FOG
         GL_FOG_BIT
@@ -814,7 +943,9 @@ cdef extern from "glcompat.h":
         GL_FOG_MODE
         GL_FOG_START
         GL_FRAGMENT_PROGRAM_ARB
+        GL_FRAGMENT_SHADER
         GL_FRAGMENT_SHADER_ARB
+        GL_FRAGMENT_SHADER_DERIVATIVE_HINT
         GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB
         GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_EXT
         GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_EXT
@@ -857,6 +988,7 @@ cdef extern from "glcompat.h":
         GL_INDEX_SHIFT
         GL_INDEX_WRITEMASK
         GL_INFO_LOG_LENGTH
+        GL_INFO_LOG_LENGTH
         GL_INT
         GL_INTENSITY
         GL_INTENSITY12
@@ -865,8 +997,11 @@ cdef extern from "glcompat.h":
         GL_INTENSITY8
         GL_INTERPOLATE
         GL_INTERPOLATE_ARB
+        GL_INT_VEC2
         GL_INT_VEC2_ARB
+        GL_INT_VEC3
         GL_INT_VEC3_ARB
+        GL_INT_VEC4
         GL_INT_VEC4_ARB
         GL_INVALID_ENUM
         GL_INVALID_OPERATION
@@ -909,6 +1044,7 @@ cdef extern from "glcompat.h":
         GL_LINE_WIDTH
         GL_LINE_WIDTH_GRANULARITY
         GL_LINE_WIDTH_RANGE
+        GL_LINK_STATUS
         GL_LIST_BASE
         GL_LIST_BIT
         GL_LIST_INDEX
@@ -916,6 +1052,7 @@ cdef extern from "glcompat.h":
         GL_LOAD
         GL_LOGIC_OP
         GL_LOGIC_OP_MODE
+        GL_LOWER_LEFT
         GL_LUMINANCE
         GL_LUMINANCE12
         GL_LUMINANCE12_ALPHA12
@@ -990,11 +1127,14 @@ cdef extern from "glcompat.h":
         GL_MAX_CLIENT_ATTRIB_STACK_DEPTH
         GL_MAX_CLIP_PLANES
         GL_MAX_COLOR_ATTACHMENTS_EXT
+        GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS
         GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB
         GL_MAX_CUBE_MAP_TEXTURE_SIZE
+        GL_MAX_DRAW_BUFFERS
         GL_MAX_ELEMENTS_INDICES
         GL_MAX_ELEMENTS_VERTICES
         GL_MAX_EVAL_ORDER
+        GL_MAX_FRAGMENT_UNIFORM_COMPONENTS
         GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB
         GL_MAX_LIGHTS
         GL_MAX_LIST_NESTING
@@ -1023,15 +1163,21 @@ cdef extern from "glcompat.h":
         GL_MAX_PROGRAM_TEX_INSTRUCTIONS_ARB
         GL_MAX_PROJECTION_STACK_DEPTH
         GL_MAX_RENDERBUFFER_SIZE_EXT
+        GL_MAX_TEXTURE_COORDS
         GL_MAX_TEXTURE_COORDS_ARB
+        GL_MAX_TEXTURE_IMAGE_UNITS
         GL_MAX_TEXTURE_IMAGE_UNITS_ARB
         GL_MAX_TEXTURE_SIZE
         GL_MAX_TEXTURE_STACK_DEPTH
         GL_MAX_TEXTURE_UNITS
         GL_MAX_TEXTURE_UNITS_ARB
+        GL_MAX_VARYING_FLOATS
         GL_MAX_VARYING_FLOATS_ARB
+        GL_MAX_VERTEX_ATTRIBS
         GL_MAX_VERTEX_ATTRIBS_ARB
+        GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS
         GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB
+        GL_MAX_VERTEX_UNIFORM_COMPONENTS
         GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB
         GL_MAX_VIEWPORT_DIMS
         GL_MODELVIEW
@@ -1138,6 +1284,8 @@ cdef extern from "glcompat.h":
         GL_POINT_SIZE_RANGE
         GL_POINT_SMOOTH
         GL_POINT_SMOOTH_HINT
+        GL_POINT_SPRITE
+        GL_POINT_SPRITE_COORD_ORIGIN
         GL_POINT_TOKEN
         GL_POLYGON
         GL_POLYGON_BIT
@@ -1241,13 +1389,19 @@ cdef extern from "glcompat.h":
         GL_RGB_SCALE_ARB
         GL_RIGHT
         GL_S
+        GL_SAMPLER_1D
         GL_SAMPLER_1D_ARB
+        GL_SAMPLER_1D_SHADOW
         GL_SAMPLER_1D_SHADOW_ARB
+        GL_SAMPLER_2D
         GL_SAMPLER_2D_ARB
         GL_SAMPLER_2D_RECT_ARB
         GL_SAMPLER_2D_RECT_SHADOW_ARB
+        GL_SAMPLER_2D_SHADOW
         GL_SAMPLER_2D_SHADOW_ARB
+        GL_SAMPLER_3D
         GL_SAMPLER_3D_ARB
+        GL_SAMPLER_CUBE
         GL_SAMPLER_CUBE_ARB
         GL_SAMPLES
         GL_SAMPLE_ALPHA_TO_COVERAGE
@@ -1266,7 +1420,10 @@ cdef extern from "glcompat.h":
         GL_SEPARATE_SPECULAR_COLOR
         GL_SET
         GL_SHADER_OBJECT_ARB
+        GL_SHADER_SOURCE_LENGTH
+        GL_SHADER_TYPE
         GL_SHADE_MODEL
+        GL_SHADING_LANGUAGE_VERSION
         GL_SHADING_LANGUAGE_VERSION_ARB
         GL_SHININESS
         GL_SHORT
@@ -1303,6 +1460,13 @@ cdef extern from "glcompat.h":
         GL_STATIC_READ_ARB
         GL_STENCIL
         GL_STENCIL_ATTACHMENT_EXT
+        GL_STENCIL_BACK_FAIL
+        GL_STENCIL_BACK_FUNC
+        GL_STENCIL_BACK_PASS_DEPTH_FAIL
+        GL_STENCIL_BACK_PASS_DEPTH_PASS
+        GL_STENCIL_BACK_REF
+        GL_STENCIL_BACK_VALUE_MASK
+        GL_STENCIL_BACK_WRITEMASK
         GL_STENCIL_BITS
         GL_STENCIL_BUFFER_BIT
         GL_STENCIL_CLEAR_VALUE
@@ -1490,8 +1654,10 @@ cdef extern from "glcompat.h":
         GL_UNSIGNED_SHORT_5_5_5_1
         GL_UNSIGNED_SHORT_5_6_5
         GL_UNSIGNED_SHORT_5_6_5_REV
+        GL_UPPER_LEFT
         GL_V2F
         GL_V3F
+        GL_VALIDATE_STATUS
         GL_VENDOR
         GL_VERSION
         GL_VERTEX_ARRAY
@@ -1501,15 +1667,24 @@ cdef extern from "glcompat.h":
         GL_VERTEX_ARRAY_STRIDE
         GL_VERTEX_ARRAY_TYPE
         GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING_ARB
+        GL_VERTEX_ATTRIB_ARRAY_ENABLED
         GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB
+        GL_VERTEX_ATTRIB_ARRAY_NORMALIZED
         GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB
+        GL_VERTEX_ATTRIB_ARRAY_POINTER
         GL_VERTEX_ATTRIB_ARRAY_POINTER_ARB
+        GL_VERTEX_ATTRIB_ARRAY_SIZE
         GL_VERTEX_ATTRIB_ARRAY_SIZE_ARB
+        GL_VERTEX_ATTRIB_ARRAY_STRIDE
         GL_VERTEX_ATTRIB_ARRAY_STRIDE_ARB
+        GL_VERTEX_ATTRIB_ARRAY_TYPE
         GL_VERTEX_ATTRIB_ARRAY_TYPE_ARB
         GL_VERTEX_PROGRAM_ARB
+        GL_VERTEX_PROGRAM_POINT_SIZE
         GL_VERTEX_PROGRAM_POINT_SIZE_ARB
+        GL_VERTEX_PROGRAM_TWO_SIDE
         GL_VERTEX_PROGRAM_TWO_SIDE_ARB
+        GL_VERTEX_SHADER
         GL_VERTEX_SHADER_ARB
         GL_VIEWPORT
         GL_VIEWPORT_BIT
