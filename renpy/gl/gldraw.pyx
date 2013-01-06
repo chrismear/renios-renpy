@@ -459,7 +459,7 @@ cdef class GLDraw:
             glenviron_shader_es,
             'RENPY_GL_ENVIRON',
             "shader_es",
-            "APPLE_framebuffer_multisample"
+            "GL_APPLE_framebuffer_multisample"
             ):
             try:
                 renpy.display.log.write("Using shader environment (OpenGL ES).")
