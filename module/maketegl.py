@@ -700,6 +700,7 @@ def generate_tegl():
         declare("LinkProgram",GLuint)
         #declare("ShaderSource",GLuint,GLsizei,GLvoid**,GLint[])
         #handcoded("ShaderSource",4)
+        declare("ShaderSource",GLuint,GLsizei,GLvoid[1][1],GLint[1])
         declare("UseProgram",GLuint)
         declare("Uniform1f",GLint,GLfloat)
         declare("Uniform2f",GLint,GLfloat,GLfloat)
