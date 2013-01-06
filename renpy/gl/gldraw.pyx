@@ -132,7 +132,7 @@ cdef class GLDraw:
         self.upscale_factor = 1.0
 
         # Should we use the fast (but incorrect) dissolve mode?
-        self.fast_dissolve = False # renpy.android
+        self.fast_dissolve = True # renpy.android
 
         # Should we always report pixels as being always opaque?
         self.always_opaque = renpy.android
