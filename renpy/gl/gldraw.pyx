@@ -455,6 +455,21 @@ cdef class GLDraw:
                 renpy.display.log.write("Initializing shader environment failed:")
                 renpy.display.log.exception()
                 self.environ = None
+        elif allow_shader and use_subsystem(
+            glenviron_shader_es,
+            'RENPY_GL_ENVIRON',
+            "shader_es",
+            "APPLE_framebuffer_multisample"
+            ):
+            try:
+                renpy.display.log.write("Using shader environment (OpenGL ES).")
+                self.environ = glenviron_shader_es.ShaderESEnviron()
+                self.info["environ"] = "shader_es"
+                self.environ.init()
+            except Exception, e:
+                renpy.display.log.write("Initializing shader (OpenGL ES) environment failed.")
+                renpy.display.log.exception()
+                self.environ = None
                 
         if self.environ is None:
             
@@ -1258,4 +1273,9 @@ try:
     import glenviron_limited
 except ImportError:
     glenviron_limited = None
+
+try:
+    import glenviron_shader_es
+except ImportError:
+    glenviron_shader_es = None
 

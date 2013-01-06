@@ -105,6 +105,7 @@ cython("renpy.gl.gltexture", libs=glew_libs)
 cython("renpy.gl.glenviron_shader", libs=glew_libs, compile_if=not ios)
 cython("renpy.gl.glenviron_fixed", libs=glew_libs, compile_if=not (android or ios))
 cython("renpy.gl.glenviron_limited", libs=glew_libs, compile_if=not android)
+cython("renpy.gl.glenviron_shader_es", libs=glew_libs)
 cython("renpy.gl.glrtt_copy", libs=glew_libs)
 cython("renpy.gl.glrtt_fbo", libs=glew_libs)
 
