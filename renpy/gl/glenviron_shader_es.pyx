@@ -241,7 +241,7 @@ def compile_shader(kind, source):
     cdef int lensource = len(source)
     
     handle = glCreateShader(kind)
-    glShaderSource(handle, 1, <GLcharARB **> &sourceptr, &lensource)
+    glShaderSource(handle, 1, <GLvoid **> &sourceptr, &lensource)
     glCompileShader(handle)
 
     check_status(True, handle, GL_COMPILE_STATUS)
