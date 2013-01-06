@@ -472,6 +472,7 @@ cdef extern from "glcompat.h":
     GLboolean glIsProgram(GLuint)
     GLboolean glIsShader(GLuint)
     void glLinkProgram(GLuint)
+    void glShaderSource(GLuint, GLsizei, GLvoid * *, GLint *)
     void glUseProgram(GLuint)
     void glUniform1f(GLint, GLfloat)
     void glUniform2f(GLint, GLfloat, GLfloat)
