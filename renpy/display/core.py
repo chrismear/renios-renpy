@@ -1403,7 +1403,8 @@ class Interface(object):
             renpy.config.screen_height,
             )
 
-        renpy.display.draw.draw_screen(surftree, fullscreen_video)
+        if not self.minimized:
+            renpy.display.draw.draw_screen(surftree, fullscreen_video)
         
         renpy.display.render.mark_sweep()
         renpy.display.focus.take_focuses()
@@ -1755,6 +1756,16 @@ class Interface(object):
 
         self.minimized = True
 
+        if renpy.ios:
+            # android.sound.pause_all()
+
+            pygame.pygametime.set_timer(PERIODIC, 0)
+            pygame.pygametime.set_timer(REDRAW, 0)
+            pygame.pygametime.set_timer(TIMEEVENT, 0)
+
+            # The game has to be saved.
+            renpy.loadsave.save("_reload-1")
+
         renpy.display.log.write("The window was minimized.")
         
     
@@ -1770,6 +1781,15 @@ class Interface(object):
             return
         
         self.minimized = False
+
+        if renpy.ios:
+            # Since we came back to life, we can get rid of the
+            # auto-reload.
+            renpy.loadsave.unlink_save("_reload-1")
+
+            pygame.pygametime.set_timer(PERIODIC, PERIODIC_INTERVAL)
+
+            # android.sound.unpause_all()
 
         renpy.display.log.write("The window was restored.")
 
