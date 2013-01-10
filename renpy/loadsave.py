@@ -524,7 +524,9 @@ def MultiPersistent(name):
     if not renpy.game.context().init_phase:
         raise Exception("MultiPersistent objects must be created during the init phase.")
     
-    if sys.platform == 'win32':
+    if renpy.ios:
+        files = [ os.path.expanduser("~/Documents/Renpy/persistent") ]
+    elif sys.platform == 'win32':
         files = [ os.path.expanduser("~/RenPy/Persistent") ]
 
         if 'APPDATA' in os.environ:
