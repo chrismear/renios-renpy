@@ -108,6 +108,14 @@ cython("renpy.gl.glenviron_shader_es", libs=glew_libs)
 cython("renpy.gl.glrtt_copy", libs=glew_libs)
 cython("renpy.gl.glrtt_fbo", libs=glew_libs)
 
+# UI
+if ios:
+    cmodule(
+        "ios",
+        ["ios.c"],
+        sdl
+        )
+
 # Angle
 def anglecopy(fn):
     if android:
