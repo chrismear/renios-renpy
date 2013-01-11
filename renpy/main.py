@@ -209,6 +209,8 @@ def main():
     renpy.game.exception_info = 'After loading the script.'
 
     # Find the save directory.
+    if renpy.ios:
+        renpy.config.savedir = os.environ.get('RENIOS_SAVE_DIRECTORY', None)
     if renpy.config.savedir is None:
         renpy.config.savedir = __main__.path_to_saves(renpy.config.gamedir) # E1101 @UndefinedVariable
 
