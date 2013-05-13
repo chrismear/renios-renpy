@@ -29,6 +29,9 @@ import renpy
 
 # The framebuffer object we use.
 cdef GLuint fbo
+
+# The OS framebuffer to reset to
+cdef GLint defaultFbo
     
 class FboRtt(Rtt):
     """
@@ -67,6 +70,8 @@ class FboRtt(Rtt):
         to render the texture.
         """
         
+        glGetIntegerv(GL_FRAMEBUFFER_BINDING_EXT, &defaultFbo)
+
         glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, fbo)
 
         glFramebufferTexture2DEXT(
@@ -81,7 +86,7 @@ class FboRtt(Rtt):
 
         draw_func(x, y, w, h)
 
-        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0)
+        glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, defaultFbo)
         
 
     def get_size_limit(self, dimension):

@@ -76,6 +76,7 @@ typedef GLchar GLcharARB;
 #define glGenFramebuffersEXT glGenFramebuffers
 #define glDeleteFramebuffersEXT glDeleteFramebuffers
 #define glCheckFramebufferStatusEXT glCheckFramebufferStatus
+#define GL_FRAMEBUFFER_BINDING_EXT GL_FRAMEBUFFER_BINDING
 
 #define GL_OBJECT_INFO_LOG_LENGTH_ARB GL_INFO_LOG_LENGTH
 #define GL_OBJECT_COMPILE_STATUS_ARB GL_COMPILE_STATUS
