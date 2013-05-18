@@ -772,7 +772,7 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
             self.editable = replaces.editable
 
         if renpy.ios:
-            import ios;
+            import ios
             ios.show_keyboard()
 
         self.update_text(self.content, self.editable)
@@ -831,6 +831,11 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
             if not self.changed:
                 return self.content
 
+        elif map_event(ev, "drag_deactivate"):
+            if renpy.ios:
+                import ios
+                ios.show_keyboard()
+
         elif ev.type == pygame.KEYDOWN and ev.unicode:
             if ord(ev.unicode[0]) < 32:
                 return None
@@ -849,6 +854,7 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
             self.update_text(content, self.editable)
 
             raise renpy.display.core.IgnoreEvent()
+
 
 # A map from adjustment to lists of displayables that want to be redrawn
 # if the adjustment changes.
