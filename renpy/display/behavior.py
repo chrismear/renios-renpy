@@ -775,10 +775,6 @@ class Input(renpy.text.text.Text): #@UndefinedVariable
             self.editable = replaces.editable
             self.caret_pos = replaces.caret_pos
 
-        if renpy.ios:
-            import ios
-            ios.show_keyboard()
-
         self.update_text(self.content, self.editable)
 
 
