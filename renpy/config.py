@@ -316,7 +316,7 @@ inspector = None
 reject_backslash = True
 
 # Hide the mouse.
-mouse_hide_time = 30
+mouse_hide_time = 0
 
 # Called when we can't load an image.
 missing_image_callback = None
