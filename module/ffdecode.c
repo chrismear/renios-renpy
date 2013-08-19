@@ -1871,7 +1871,7 @@ static int stream_component_open(VideoState *is, int stream_index)
         is->subtitle_st = ic->streams[stream_index];
         packet_queue_init(&is->subtitleq);
 
-        is->subtitle_tid = SDL_CreateThread(subtitle_thread, is);
+        is->subtitle_tid = SDL_CreateThread(subtitle_thread, "renpysubtitlethread", is);
         break;
     default:
         break;
