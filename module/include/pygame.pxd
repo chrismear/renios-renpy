@@ -18,6 +18,4 @@ cdef extern from "pygame/pygame.h":
     enum:
         SDL_SRCALPHA
     
-cdef extern int SDL_BlitSurface(SDL_Surface *src, SDL_Rect *srcrect, SDL_Surface *dst, SDL_Rect *dstrect) nogil
-    
-        
+cdef extern int SDL_BlitSurface(SDL_Surface *src, const SDL_Rect *srcrect, SDL_Surface *dst, SDL_Rect *dstrect) nogil
