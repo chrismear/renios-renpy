@@ -1,0 +1,51 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 85, in script
+  File "renpy/common/00action_menu.rpy", line 186, in python
+NameError: global name 'Fast' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "/home/tom/ab/renpy/renpy/execution.py", line 288, in run
+    node.execute()
+  File "/home/tom/ab/renpy/renpy/ast.py", line 453, in execute
+    renpy.exports.say(who, what, interact=self.interact)
+  File "/home/tom/ab/renpy/renpy/exports.py", line 757, in say
+    who(what, interact=interact)
+  File "/home/tom/ab/renpy/renpy/character.py", line 795, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, **display_args)
+  File "/home/tom/ab/renpy/renpy/character.py", line 671, in do_display
+    **display_args)
+  File "/home/tom/ab/renpy/renpy/character.py", line 474, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "/home/tom/ab/renpy/renpy/ui.py", line 237, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/home/tom/ab/renpy/renpy/display/core.py", line 1853, in interact
+    repeat, rv = self.interact_core(preloads=preloads, **kwargs)
+  File "/home/tom/ab/renpy/renpy/display/core.py", line 2392, in interact_core
+    rv = root_widget.event(ev, x, y, 0)
+  File "/home/tom/ab/renpy/renpy/display/layout.py", line 749, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/tom/ab/renpy/renpy/display/layout.py", line 749, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/tom/ab/renpy/renpy/display/layout.py", line 749, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/tom/ab/renpy/renpy/display/screen.py", line 319, in event
+    rv = self.child.event(ev, x, y, st)
+  File "/home/tom/ab/renpy/renpy/display/layout.py", line 749, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/tom/ab/renpy/renpy/display/layout.py", line 749, in event
+    rv = i.event(ev, x - xo, y - yo, cst)
+  File "/home/tom/ab/renpy/renpy/display/behavior.py", line 625, in event
+    rv = run(self.clicked)
+  File "/home/tom/ab/renpy/renpy/display/behavior.py", line 211, in run
+    return var(*args, **kwargs)
+  File "renpy/common/00action_menu.rpy", line 186, in __call__
+    config.skipping = Fast
+NameError: global name 'Fast' is not defined
+
+Linux-3.8.0-26-generic-x86_64-with-debian-wheezy-sid
+Ren'Py 6.15.6.354
+Ren'Py Tutorial 6.15 "Foreign Policy"
