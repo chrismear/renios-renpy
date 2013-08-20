@@ -115,6 +115,7 @@ def import_all():
     import renpy.style #@UnresolvedImport
     import renpy.substitutions #@UnresolvedImport
     import renpy.translation #@UnresolvedImport
+    import renpy.translator
 
     import renpy.display.presplash #@UnresolvedImport
     import renpy.display.pgrender #@UnresolvedImport
