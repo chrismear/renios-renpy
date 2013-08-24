@@ -16,6 +16,14 @@
 #include "mmx.h"
 #endif
 
+/* Fix for compiling for iOS simulator (iOS environment, but compiling for i386) */
+#if __APPLE__
+#include "TargetConditionals.h"
+#if TARGET_IPHONE_SIMULATOR
+#undef GCC_MMX
+#endif
+#endif
+
 /* MMX Register assignments (between applications of the blitter core).
  *
  * mm0 - new row 0

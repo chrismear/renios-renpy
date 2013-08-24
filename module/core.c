@@ -14,6 +14,14 @@
 #undef GCC_MMX
 #endif
 
+/* Fix for compiling for iOS simulator (iOS environment, but compiling for i386) */
+#if __APPLE__
+#include "TargetConditionals.h"
+#if TARGET_IPHONE_SIMULATOR
+#undef GCC_MMX
+#endif
+#endif
+
 // Shows how to do this.
 #if SDL_BYTEORDER == SDL_BIG_ENDIAN
 #endif 
